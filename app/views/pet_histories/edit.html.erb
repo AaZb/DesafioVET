@@ -1,0 +1,10 @@
+<h1>Editing pet history</h1>
+
+<%= render "form", pet_history: @pet_history %>
+
+<br>
+
+<div>
+  <%= link_to "Mostrar este historial de mascotas", @pet_history %> |
+  <%= link_to "Volver a las historias de las mascotas", pet_histories_path %>
+</div>

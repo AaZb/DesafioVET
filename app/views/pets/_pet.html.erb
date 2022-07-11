@@ -1,0 +1,40 @@
+<div id="<%= dom_id pet %>">
+  <p>
+    <strong>Nombre:</strong>
+    <%= pet.name %>
+  </p>
+
+  <p>
+    <strong>Raza:</strong>
+    <%= pet.race %>
+  </p>
+
+  <p>
+    <strong>Cumpleaños:</strong>
+    <%= pet.birthday %>
+  </p>
+
+  <p>
+    <strong>Cliente:</strong>
+    <%= pet.Client.name %>
+  </p>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Peso Promedio</th>
+      <th scope="col">Altura Promedio</th>
+      <th scope="col">Peso Máximo</th>
+      <th scope="col">Altura Máxima</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= pet.pet_histories.average(:weight) %></td>
+      <td><%= pet.pet_histories.average(:height) %></td>
+      <td><%= pet.pet_histories.maximum(:weight) %></td>
+      <td><%= pet.pet_histories.maximum(:height) %></td>
+    </tr>
+  </tbody>
+</table>
+</div>

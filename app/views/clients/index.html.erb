@@ -1,0 +1,29 @@
+<p style="color: green"><%= notice %></p>
+
+<h2 class="text-center">Clientes</h2>
+<%= link_to "Nuevo Cliente", new_client_path %>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Teléfono</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">E-Mail</th>
+      <th scope="col">Mascota N°.</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @clients.each do |client| %>
+    <tr>
+      <td><%= client.phone %></td>
+      <td><%= client.name %></td>
+      <td><%= client.email %></td>
+      <td><%= client.pets.count() %></td>
+      <td><%= link_to "Mostrar", client %></td>
+      <td><%= link_to "Editar", edit_client_path(client.id) %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+

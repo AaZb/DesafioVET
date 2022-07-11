@@ -1,0 +1,37 @@
+<%= form_with(model: pet) do |form| %>
+  <% if pet.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(pet.errors.count, "error") %> prohibió que esta mascota se salvara:</h2>
+
+      <ul>
+        <% pet.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :Nombre, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :Raza, style: "display: block" %>
+    <%= form.text_field :race %>
+  </div>
+
+  <div>
+    <%= form.label :Cumpleaños, style: "display: block" %>
+    <%= form.date_field :birthday %>
+  </div>
+
+  <div>
+    <%= form.label :Cliente_id, style: "display: block" %>
+    <%= collection_select( :pet, :Client_id, Client.all, :id, :name )%>
+  </div>
+
+  <div>
+    <%= form.submit value="Crear Mascota" %>
+  </div>
+<% end %>

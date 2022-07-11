@@ -1,0 +1,42 @@
+<%= form_with(model: pet_history) do |form| %>
+  <% if pet_history.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(pet_history.errors.count, "error") %> prohibió que se guardara esta historia_de_mascotas:</h2>
+
+      <ul>
+        <% pet_history.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :Altura, style: "display: block" %>
+    <%= form.text_field :height %>
+  </div>
+
+  <div>
+    <%= form.label :Peso, style: "display: block" %>
+    <%= form.text_field :weight %>
+  </div>
+
+  <div>
+    <%= form.label :Fecha, style: "display: block" %>
+    <%= form.date_field :dateVisit %>
+  </div>
+
+  <div>
+    <%= form.label :Diagnóstico, style: "display: block" %>
+    <%= form.text_field :diagnosis %>
+  </div>
+
+  <div>
+    <%= form.label :Mascota_id, style: "display: block" %>
+    <%= collection_select(:pet_history, :pet_id, Pet.all, :id, :name) %>
+  </div>
+
+  <div>
+    <%= form.submit value="Crear Historial" %>
+  </div>
+<% end %>
